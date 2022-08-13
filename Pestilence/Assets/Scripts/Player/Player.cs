@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector2(_horizontal, _vertical).normalized * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * new Vector2(_horizontal, _vertical).normalized);
 
         if(GameObject.FindGameObjectsWithTag("Equip Slot")[0].GetComponent<Slot>().heldItem != null)
         {
@@ -81,6 +81,10 @@ public class Player : MonoBehaviour
         {
             _srWeapon.sprite = null;
         }
+
+        Vector3 newScale = transform.localScale;
+        newScale.y = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x > 0 ? 1 : -1;
+        playerArm.transform.localScale = newScale;
 
         //check if the target position is still within player range
         if (cameraDestinationTransform != transform)
