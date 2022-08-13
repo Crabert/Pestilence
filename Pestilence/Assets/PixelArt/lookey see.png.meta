@@ -1,0 +1,477 @@
+fileFormatVersion: 2
+guid: 24cf87bbac320eb4b9cf8b3dbf87d0f4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 5
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lookey see_upR
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 54
+        width: 4
+        height: 6
+      alignment: 9
+      pivot: {x: 0.14057446, y: 0.08067004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ef856825e20b846b64f0e7c0a3d794
+      internalID: -1849015101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_UpRight
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 55
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.1070282, y: 0.1070282}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589b4a5967399f143b9ec193acb506ed
+      internalID: -714098862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_rightL
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 58
+        width: 6
+        height: 4
+      alignment: 9
+      pivot: {x: 0.084664024, y: 0.8773966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8ca955fa852e241bb29840962bc3e8
+      internalID: 1081369962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_DownRight
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 57
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.09744339, y: 0.90734863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4622abc6d1582f7489716ae421500ab9
+      internalID: -534270437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_LeftDown
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 46
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.8828697, y: 0.88766253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f560071373f1bdd47a9d44db936d3711
+      internalID: -298165330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_leftR
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 43
+        width: 6
+        height: 4
+      alignment: 9
+      pivot: {x: 0.91118366, y: 0.12989521}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be786cc9c092e4a4393a6e34c1c37425
+      internalID: -1829206248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_LeftUp
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 42
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0.9044113, y: 0.10517196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c2d335df1afcd4b81e9e9cafd9aeec
+      internalID: -90488200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_up
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 55
+        width: 1
+        height: 5
+      alignment: 9
+      pivot: {x: 0.5, y: 0.08306656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b7e29451141e9459b02271e22fc3cf
+      internalID: 1849795970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_downR
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 46
+        width: 4
+        height: 6
+      alignment: 9
+      pivot: {x: 0.8761864, y: 0.9293213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54c85f5ed143e6448dcb738400aa51d
+      internalID: -1492908339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_leftL
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 46
+        width: 6
+        height: 4
+      alignment: 9
+      pivot: {x: 0.9086663, y: 0.8881674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c24b92d680aa54990c2fbdf47058ac
+      internalID: 470102332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_left
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 46
+        width: 5
+        height: 1
+      alignment: 9
+      pivot: {x: 0.8780777, y: 0.47192}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d31a6cbbfdfd8468dfe496ed1d0448
+      internalID: -1361088210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_upL
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 41
+        width: 4
+        height: 6
+      alignment: 9
+      pivot: {x: 0.87203693, y: 0.092809044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89b406cc6e8e164eb65509f79c62763
+      internalID: -33042261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_downL
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 57
+        width: 4
+        height: 6
+      alignment: 9
+      pivot: {x: 0.12859344, y: 0.91533595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8724db8d1bba04c84e3c70d82122c0
+      internalID: -1705266024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_down
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 57
+        width: 1
+        height: 5
+      alignment: 9
+      pivot: {x: 0.4999962, y: 0.86901015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac935f3aed794c46a0c5f3d98b8596b
+      internalID: -1202247242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_rightR
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 56
+        width: 6
+        height: 4
+      alignment: 9
+      pivot: {x: 0.09664472, y: 0.12260342}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac7471195a393546af25bc47c6fcd64
+      internalID: 829798916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lookey see_right
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 58
+        width: 5
+        height: 1
+      alignment: 9
+      pivot: {x: 0.11661263, y: 0.5239601}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb759014ac4e454fb313a520a1eadb9
+      internalID: 394336181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      lookey see_down: -1202247242
+      lookey see_rightR: 829798916
+      lookey see_upL: -33042261
+      lookey see_left: -1361088210
+      lookey see_UpRight: -714098862
+      lookey see_LeftDown: -298165330
+      lookey see_LeftUp: -90488200
+      lookey see_downR: -1492908339
+      lookey see_leftR: -1829206248
+      lookey see_upR: -1849015101
+      lookey see_up: 1849795970
+      lookey see_downL: -1705266024
+      lookey see_leftL: 470102332
+      lookey see_14: 1832230018
+      lookey see_DownRight: -534270437
+      lookey see_rightL: 1081369962
+      lookey see_right: 394336181
+      SHOUOLD NOT EXISt: 1317390317
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
