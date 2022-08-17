@@ -202,12 +202,11 @@ public class Player : MonoBehaviour
         }
 
         //move player arm to mouse
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        playerArm.transform.right = -mousePos;
-
-        //flip arm relative to mouse
-        //Vector3 newScale = new Vector3(_playerSwing.transform.localScale.x, mousePos.x > 0 ? -1 : 1, _playerSwing.transform.localScale.z);
-        //_playerSwing.transform.localScale = newScale;
+        if(!attack)
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            playerArm.transform.right = -mousePos;
+        }
 
         //animation states
         anim.SetFloat("horizontal", _horizontal);
@@ -218,8 +217,11 @@ public class Player : MonoBehaviour
         anim.SetBool("walk", walk);
         anim.SetBool("sneak", sneak);
         anim.SetBool("sprint", sprint);
-        headAnim.SetFloat("headHorizontal", _headHorizontal);
-        headAnim.SetFloat("headVertical", _headVertical);
+        if(!attack && !sprint)
+        {
+            headAnim.SetFloat("headHorizontal", _headHorizontal);
+            headAnim.SetFloat("headVertical", _headVertical);
+        }
     }
 
     void AttackCooldown()

@@ -198,7 +198,6 @@ public class ContainerArray
         }
         else if(means == "shift")
         {
-            Debug.Log("here");
             //check for stackability
             if (item.canStack)
             {

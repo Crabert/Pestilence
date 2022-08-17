@@ -17,7 +17,6 @@ public class CameraTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (Input.GetMouseButtonDown(2) && player.cameraDestinationTransform != transform && _hover)
         {
-            print("target selected");
             player.cameraDestinationTransform = transform;
         }
     }
