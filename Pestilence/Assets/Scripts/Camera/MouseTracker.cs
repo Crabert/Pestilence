@@ -6,6 +6,6 @@ public class MouseTracker : MonoBehaviour
 {
     void Update()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);    
+        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
