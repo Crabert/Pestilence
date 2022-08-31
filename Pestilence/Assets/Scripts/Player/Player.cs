@@ -22,8 +22,10 @@ public class Player : MonoBehaviour
     float _camSpeed;
     public bool hovering;   //is the mouse over an object that can be tracked by camera
     public float lookTime;
-    bool playerOverride;
-    
+    public float mouseDistance; //the distance we can look with the mouse before it hates us and it ang >:(
+    public bool mouseLookDelay; //choppy stoppy
+    public float mouseDelayTime;
+
     //bool cooldowns
     bool isAttackCooldown;
     bool isLookCooldown;
@@ -104,30 +106,18 @@ public class Player : MonoBehaviour
                 cameraDestination = transform.position;
                 cameraDestinationTransform = transform;
             }
-            else if (Vector2.Distance(transform.position, cameraDestination) > (targetDistance * .33))
-            {
-                //switching and updating to mid point tracking to keep player in frame while still staying relative to the target
-                cameraDestination = new Vector2((transform.position.x + cameraDestination.x) / 2,
-                    (transform.position.y + cameraDestination.y) / 2);
-            }
             else
             {
                 //updating for other target tracking
                 cameraDestination = cameraDestinationTransform.position;
             }
         }
-        else if(!isLookCooldown)
+        else
         {
             //updating for player tracking
             cameraDestination = transform.position;
         }
-        else if(isLookCooldown)
-        {
-            //updating for mouse based looking
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 midMousePos = new Vector2((transform.position.x + mousePos.x) / 2, (transform.position.y + mousePos.y) / 2);
-            cameraDestination = midMousePos;
-        }
+        
 
         if(Input.GetMouseButtonDown(2) && cameraDestinationTransform != transform)
         {
@@ -190,37 +180,7 @@ public class Player : MonoBehaviour
 
         lastMousePos = Input.mousePosition;
 
-        if(playerOverride)
-        {
-            cameraDestination = transform.position;
-            _camSpeed *= 2;
-        }
-
-        //moving camera & controls
-        if (Camera.main.transform.position != cameraDestination && _lastHorizontal != 0 && _lastVertical != 0)
-        {
-            Vector2 direction = (cameraDestination - Camera.main.transform.position).normalized;
-            Vector2 increase = _camSpeed * Time.deltaTime * (Vector3)direction;
-            
-
-            if (Vector2.Distance(Camera.main.transform.position + (Vector3)increase, transform.position) > playerDistance)
-                increase = -increase;   //move back to player
-            Vector2 newPos = Camera.main.transform.position + (Vector3)increase;
-
-            if (HeadCheck(_lastHorizontal, _lastVertical, newPos.x, newPos.y) == "In Range")
-            {
-                newPos = Vector2.Lerp(Camera.main.transform.position, newPos, (newPos.y - Camera.main.transform.position.y) / (newPos.x - Camera.main.transform.position.x));
-                if(HeadCheck(_lastHorizontal, _lastVertical, newPos.x, newPos.y) == "Out of Range")
-                {
-                    StopCoroutine(PlayerOverrideTimer());
-                    StartCoroutine(PlayerOverrideTimer());
-                    playerOverride = true;
-                    newPos = Camera.main.transform.position;
-                }
-            }
-                
-            Camera.main.transform.position = newPos;
-        }
+        //controls
 
         if(Input.GetMouseButtonDown(0) && !isAttackCooldown && currentWeapon != null)
         {
@@ -302,11 +262,9 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(lookTime);
         isLookCooldown = false;
     }
-    IEnumerator PlayerOverrideTimer()
+    void MouseLookDelay()
     {
-        yield return new WaitForSeconds(5);
-        playerOverride = false;
-        _camSpeed /= 2;
+        mouseLookDelay = false;
     }
     public string HeadCheck(float bodyHorizontal, float bodyVertical, float headHorizontal, float headVertical)   //realitically return Empty is the same as In Range
     {
@@ -404,5 +362,31 @@ public class Player : MonoBehaviour
             }
         }
         return "Empty";
+    }
+
+    private void LateUpdate() 
+    {
+        if (isLookCooldown && cameraDestinationTransform == transform && Input.GetMouseButton(2))
+        {
+            if (!mouseLookDelay && Mathf.Round(Vector2.Distance(transform.position, GameObject.Find("MouseTracker").transform.position)) <= mouseDistance)
+            {
+                Vector2 addedMousePos = GameObject.Find("MouseTracker").transform.position;
+                addedMousePos = new Vector2((addedMousePos.x + transform.position.x) / 2, (addedMousePos.y + transform.position.y) / 2);
+                cameraDestination = (Vector3)addedMousePos;
+            }
+            else if(!mouseLookDelay)
+            {
+                mouseLookDelay = true;
+                Invoke("MouseLookDelay", mouseDelayTime);
+            }
+        }
+
+        //moving camera & controls
+        if (Camera.main.transform.position != cameraDestination)
+        {
+            Vector2 direction = (cameraDestination - Camera.main.transform.position).normalized;
+
+            Camera.main.transform.position += _camSpeed * Time.deltaTime * (Vector3)direction;
+        }
     }
 }

@@ -56,7 +56,7 @@ public class ContainerArray
                         {
                             if(index_o != 0)
                             {
-                                if (StackItem(index, index_o))  //shift clicking etc
+                                if (StackItem(index, index_o, originArray))  //shift clicking etc
                                 {
                                     indexSpecialPass = -1;
                                     return true;
@@ -131,7 +131,7 @@ public class ContainerArray
                 //checking if the filled slot can be stacked into
                 if (container[index].canStack && originArray.container[index_o].canStack && container[index].itemName == item.itemName)
                 {
-                    if (StackItem(index, index_o))
+                    if (StackItem(index, index_o, originArray))
                     {
                         return true;
                     }
@@ -210,7 +210,7 @@ public class ContainerArray
                         {
                             if (slot2 != null)
                             {
-                                return StackItem(g, index_o);
+                                return StackItem(g, index_o, originArray);
                             }
                         }
                     }
@@ -267,10 +267,20 @@ public class ContainerArray
         return true;
     }
 
-    public bool StackItem(int index, int index_o)
+    public bool StackItem(int index, int index_o, ContainerArray origin)
     {
-        Slot slot1 = slots[index].GetComponent<Slot>();
-        Slot slot2 = slots[index_o].GetComponent<Slot>();
+        Slot slot1 = new Slot();
+        Slot slot2 = new Slot();
+        if(origin == this)
+        {
+            slot1 = slots[index].GetComponent<Slot>();
+            slot2 = slots[index_o].GetComponent<Slot>();
+        }
+        else
+        {
+            slot1 = slots[index].GetComponent<Slot>();
+            slot2 = origin.slots[index_o].GetComponent<Slot>();
+        }
 
         currentFunction = "Stacking Items";
         if (slot1.heldAmount < container[index].maxStack)    //checking if stack is full

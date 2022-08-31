@@ -4761,11 +4761,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCoolDown: 0.4
   speed: 4
-  baseCamSpeed: 26
-  targetDistance: 9.5
+  baseCamSpeed: 30
+  targetDistance: 7
   playerDistance: 0
   hovering: 0
   lookTime: 3.5
+  mouseDistance: 15
+  mouseLookDelay: 0
+  mouseDelayTime: 0.5
   cameraDestinationTransform: {fileID: 0}
   playerArm: {fileID: 1544296746}
   playerWeapon: {fileID: 1843959132}
