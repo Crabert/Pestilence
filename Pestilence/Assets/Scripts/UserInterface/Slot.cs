@@ -51,7 +51,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             if(Input.GetMouseButtonDown(1) && heldAmount > 1)
             {
                 originArray.indexSpecialPass = index;
-                if (originArray.AddItem(heldItem, 0, "auto", 0, null, null, 1, originArray))
+                if (originArray.AddItem(heldItem, 0, "auto", 0, null, null, Mathf.RoundToInt(heldAmount/2), originArray))
                     heldAmount--;
             }
             if (Input.GetMouseButton(0) && shift)

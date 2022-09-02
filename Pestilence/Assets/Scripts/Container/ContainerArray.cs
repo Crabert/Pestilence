@@ -269,8 +269,8 @@ public class ContainerArray
 
     public bool StackItem(int index, int index_o, ContainerArray origin)
     {
-        Slot slot1 = new Slot();
-        Slot slot2 = new Slot();
+        Slot slot1;
+        Slot slot2;
         if(origin == this)
         {
             slot1 = slots[index].GetComponent<Slot>();
