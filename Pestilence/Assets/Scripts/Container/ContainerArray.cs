@@ -266,7 +266,6 @@ public class ContainerArray
 
         return true;
     }
-
     public bool StackItem(int index, int index_o, ContainerArray origin)
     {
         Slot slot1;

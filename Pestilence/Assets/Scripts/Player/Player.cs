@@ -147,20 +147,17 @@ public class Player : MonoBehaviour
         {
             _headHorizontal = GameObject.Find("MouseTracker").transform.localPosition.x;
             _headVertical = GameObject.Find("MouseTracker").transform.localPosition.y;
-            if(_horizontal != 0 && _vertical != 0)
+
+            if (HeadCheck(_lastHorizontal, _lastVertical, _headHorizontal, _headVertical) == "Out of Range")
             {
-                if (HeadCheck(_horizontal, _vertical, _headHorizontal, _headVertical) == "Out of Range")
+                _headHorizontal = _horizontalHeadError;
+                _headVertical = _verticalHeadError;
+                if(!walk && !sprint && !sneak)
                 {
-                    _headHorizontal = _horizontalHeadError;
-                    _headVertical = _verticalHeadError;
-                }
-            }
-            else
-            {
-                if (HeadCheck(_lastHorizontal, _lastVertical, _headHorizontal, _headVertical) == "Out of Range")
-                {
-                    _headHorizontal = _horizontalHeadError;
-                    _headVertical = _verticalHeadError;
+                    _horizontal += _horizontal + _headHorizontal > 1 || _horizontal + _headHorizontal < -1 ? 0 : _headHorizontal;
+                    _vertical += _vertical + _headVertical > 1 || _vertical + _headVertical < -1 ? 0 : _headVertical;
+                    _lastHorizontal += _lastHorizontal + _headHorizontal > 1 || _lastHorizontal + _headHorizontal < -1 ? 0 : _headHorizontal;
+                    _lastVertical += _lastVertical + _headVertical > 1 || _lastVertical + _headVertical < -1 ? 0 : _headVertical;
                 }
             }
         }
@@ -173,6 +170,9 @@ public class Player : MonoBehaviour
             {
                 _headHorizontal = _horizontalHeadError;
                 _headVertical = _verticalHeadError;
+                //check first if we should
+                //_lastHorizontal += _lastHorizontal + _headHorizontal > 1 || _lastHorizontal + _headHorizontal < -1 ? 0 : _headHorizontal;
+                //_lastVertical += _lastVertical + _headVertical > 1 || _lastVertical + _headVertical < -1 ? 0 : _headVertical;
             }
             //check for combat/enemy target
             //move body with head
@@ -214,19 +214,13 @@ public class Player : MonoBehaviour
 
         //----------animation---------------
 
-        if (!sneak && !sprint)
-        {
-            walk = true;
-            speed = 4;
-        }
-        else
-        {
-            walk = false;
-        }
-
         if (_horizontal == 0 && _vertical == 0)
         {
             walk = false;
+        }
+        else
+        {
+            walk = true;
         }
 
         //move player arm to mouse
