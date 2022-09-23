@@ -231,6 +231,24 @@ public class ContainerArray
             }
             return false;
         }
+        else if(means == "split")
+        {
+            //add to new slot
+            int i = 0;
+            foreach (Item _item in container)
+            {
+                if (_item == null && slots[i].tag != "Equip Slot")
+                {
+                    container[i] = item;
+                    
+                    slots[i].GetComponent<Slot>().heldAmount = amount;
+                    
+                    slot2.heldAmount -= amount;
+                    return true;
+                }
+                i++;
+            }
+        }
         return false;   //essentially an error at this point
     }
 

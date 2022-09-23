@@ -4766,7 +4766,7 @@ MonoBehaviour:
   playerDistance: 0
   hovering: 0
   lookTime: 3.5
-  mouseDistance: 15
+  mouseDistance: 6
   mouseLookDelay: 0
   mouseDelayTime: 0.5
   cameraDestinationTransform: {fileID: 0}

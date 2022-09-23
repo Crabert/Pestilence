@@ -125,16 +125,24 @@ public class Player : MonoBehaviour
             cameraDestination = transform.position;
         }
 
-        if (!isLookCooldown && walk || !isLookCooldown && sneak || !isLookCooldown && sprint)
+        if (walk || sneak || sprint)
         {
-            _headHorizontal = _horizontal;
-            _headVertical = _vertical;
+            if(!Input.GetMouseButton(2))
+            {
+                StopAllCoroutines();
+                isLookCooldown = false;
+                _headHorizontal = _horizontal;
+                _headVertical = _vertical;
+            }
         }
         if (lastMousePos != Input.mousePosition)
         {
-            StopAllCoroutines();
-            isLookCooldown = true;
-            StartCoroutine(LookTimer());
+            if (!walk && !sneak && !sprint || walk && Input.GetMouseButton(2) || sneak && Input.GetMouseButton(2) || sprint && Input.GetMouseButton(2))
+            {
+                StopAllCoroutines();
+                isLookCooldown = true;
+                StartCoroutine(LookTimer());
+            }
         }
         else if (!isLookCooldown && !walk && !sneak && !sprint)
         {
@@ -143,12 +151,24 @@ public class Player : MonoBehaviour
 
         }
 
-        if(isLookCooldown)
+        if (isLookCooldown)
         {
             _headHorizontal = GameObject.Find("MouseTracker").transform.localPosition.x;
             _headVertical = GameObject.Find("MouseTracker").transform.localPosition.y;
+<<<<<<< Updated upstream
 
             if (HeadCheck(_lastHorizontal, _lastVertical, _headHorizontal, _headVertical) == "Out of Range")
+=======
+            if (_horizontal != 0 && _vertical != 0)
+            {
+                if (HeadCheck(_horizontal, _vertical, _headHorizontal, _headVertical) == "Out of Range")
+                {
+                    _headHorizontal = _horizontalHeadError;
+                    _headVertical = _verticalHeadError;
+                }
+            }
+            else
+>>>>>>> Stashed changes
             {
                 _headHorizontal = _horizontalHeadError;
                 _headVertical = _verticalHeadError;
@@ -362,7 +382,7 @@ public class Player : MonoBehaviour
     {
         if (isLookCooldown && cameraDestinationTransform == transform && Input.GetMouseButton(2))
         {
-            if (!mouseLookDelay && Mathf.Round(Vector2.Distance(transform.position, GameObject.Find("MouseTracker").transform.position)) <= mouseDistance)
+            if (!mouseLookDelay && Mathf.Round(Vector2.Distance(transform.position, Camera.main.transform.position)) <= mouseDistance)
             {
                 Vector2 addedMousePos = GameObject.Find("MouseTracker").transform.position;
                 addedMousePos = new Vector2((addedMousePos.x + transform.position.x) / 2, (addedMousePos.y + transform.position.y) / 2);
