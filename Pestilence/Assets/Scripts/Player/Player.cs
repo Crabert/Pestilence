@@ -155,10 +155,8 @@ public class Player : MonoBehaviour
         {
             _headHorizontal = GameObject.Find("MouseTracker").transform.localPosition.x;
             _headVertical = GameObject.Find("MouseTracker").transform.localPosition.y;
-<<<<<<< Updated upstream
 
             if (HeadCheck(_lastHorizontal, _lastVertical, _headHorizontal, _headVertical) == "Out of Range")
-=======
             if (_horizontal != 0 && _vertical != 0)
             {
                 if (HeadCheck(_horizontal, _vertical, _headHorizontal, _headVertical) == "Out of Range")
@@ -168,7 +166,6 @@ public class Player : MonoBehaviour
                 }
             }
             else
->>>>>>> Stashed changes
             {
                 _headHorizontal = _horizontalHeadError;
                 _headVertical = _verticalHeadError;
