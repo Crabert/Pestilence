@@ -18,6 +18,17 @@ public class ProfileManager : MonoBehaviour
         loadedProfile.SavedMacros.Add(new SavedMacro(macroName, goal, picture));
     }
 
+    public void ClearMacroProgress()
+    {
+        foreach(SavedMacro macro in loadedProfile.SavedMacros)
+            macro._macroCurrent = 0;
+    }
+    public void ClearMacroProgress(string macroName)
+    {
+        foreach(SavedMacro macro in loadedProfile.SavedMacros)
+            if(macro._macroName == macroName)
+                macro._macroCurrent = 0;
+    }
     public void AddToMacro(string macroName, int addAmount)
     {
         foreach (SavedMacro macro in loadedProfile.SavedMacros)
