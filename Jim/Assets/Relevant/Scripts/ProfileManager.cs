@@ -9,13 +9,18 @@ public class ProfileManager : MonoBehaviour
     public Profile loadedProfile;
     public UserInterface userInterface;
 
-    public void CreateNewMacro(string macroName, int goal)
+
+    public SavedMacro CreateNewMacro(string macroName, int goal)
     {
-        loadedProfile.SavedMacros.Add(new SavedMacro(macroName, goal));
+        SavedMacro newMacro = new SavedMacro(macroName, goal);
+        loadedProfile.SavedMacros.Add(newMacro);
+        return newMacro;
     }
-    public void CreateNewMacro(string macroName, int goal, Image picture)
+    public SavedMacro CreateNewMacro(string macroName, int goal, Image picture)
     {
-        loadedProfile.SavedMacros.Add(new SavedMacro(macroName, goal, picture));
+        SavedMacro newMacro = new SavedMacro(macroName, goal, picture);
+        loadedProfile.SavedMacros.Add(newMacro);
+        return newMacro;
     }
 
     public void ClearMacroProgress()
@@ -34,8 +39,8 @@ public class ProfileManager : MonoBehaviour
         foreach (SavedMacro macro in loadedProfile.SavedMacros)
         {
             if(macro != null)
-            if(macro._macroName == macroName)
-                macro._macroCurrent += addAmount;
+                if(macro._macroName == macroName)
+                    macro._macroCurrent += addAmount;
         }
     }
     public void RemoveFromMacro(string macroName, int removeAmount)

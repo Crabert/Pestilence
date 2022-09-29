@@ -22,7 +22,7 @@ public class UserInterface : MonoBehaviour
     public TMP_InputField macroGoalFieldText;
     string nameInField;
     string goalInField;
-    GameObject selectedMacro;   //for changing macros;
+    public GameObject selectedMacro;   //for changing macros;
 
     private void Start()
     {
@@ -61,8 +61,7 @@ public class UserInterface : MonoBehaviour
         newMacroDisplay += "0/" + goalInField;
         text.text = newMacroDisplay;
 
-        profileManager.CreateNewMacro(nameInField, int.Parse(goalInField));
-        newMacro.GetComponentInChildren<MacroHolder>().heldMacro = profileManager.loadedProfile.SavedMacros[^1];
+        newMacro.GetComponentInChildren<MacroHolder>().heldMacro = profileManager.CreateNewMacro(nameInField, int.Parse(goalInField));
 
         macroCreationButton.SetActive(true);
         foreach (GameObject macro in macroUI)
@@ -75,42 +74,47 @@ public class UserInterface : MonoBehaviour
         macroConfirmationButton.SetActive(false);
     }
 
-    public void OpenMacroChange(GameObject selectedMacro)
+    public void OpenMacroChange()
     {
         foreach (GameObject ui in macroUI)
         {
-            if (ui != selectedMacro)
+            if (ui != selectedMacro.transform.parent.parent.gameObject)
                 ui.SetActive(false);
         }
         macroCreationButton.SetActive(false);
-        foreach (GameObject macro in macroUI)
-        {
-            macro.SetActive(false);
-        }
         macroNameField.SetActive(false);
         macroGoalField.SetActive(false);
         macroConfirmationButton.SetActive(false);
-        this.selectedMacro = selectedMacro;
+
+        macroChangeField.SetActive(true);
     }
-    public void ChangeMacro(string gain)
+    public void ChangeMacro()
     {
-        selectedMacro.GetComponent<MacroHolder>().heldMacro._macroCurrent += int.Parse(macroChangeFieldText.text);
+        profileManager.AddToMacro(selectedMacro.GetComponent<MacroHolder>().heldMacro._macroName, int.Parse(macroChangeFieldText.text));
+        UpdateMacroTexts();
         macroChangeFieldText.text = "Change Macro by...";
 
-        foreach (GameObject ui in macroUI)
-        {
-            if (ui != selectedMacro)
-                ui.SetActive(true);
-        }
         macroCreationButton.SetActive(true);
         foreach (GameObject macro in macroUI)
         {
             macro.SetActive(true);
+            macro.GetComponentInChildren<InteractionDetection>().stop = false;
         }
         macroNameField.SetActive(true);
         macroGoalField.SetActive(true);
         macroConfirmationButton.SetActive(true);
 
+        macroChangeField.SetActive(false);
     }
 
+    void UpdateMacroTexts()
+    {
+        foreach (GameObject macro in macroUI)
+        {
+            TextMeshProUGUI text = macro.GetComponentInChildren<TextMeshProUGUI>();
+            MacroHolder currentMacro = macro.GetComponentInChildren<MacroHolder>();
+            string newText = currentMacro.heldMacro._macroName.ToString() + ": " + currentMacro.heldMacro._macroCurrent.ToString() + "/" + currentMacro.heldMacro._macroGoal;
+            text.text = newText;
+        }
+    }
 }

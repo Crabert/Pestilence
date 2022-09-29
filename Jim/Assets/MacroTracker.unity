@@ -1751,6 +1751,7 @@ MonoBehaviour:
   macroChangeFieldText: {fileID: 1972545129}
   macroNameFieldText: {fileID: 36317986}
   macroGoalFieldText: {fileID: 1019295812}
+  selectedMacro: {fileID: 0}
 --- !u!114 &1169353370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,7 +2496,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1169353369}
         m_TargetAssemblyTypeName: UserInterface, Assembly-CSharp
         m_MethodName: ChangeMacro
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
