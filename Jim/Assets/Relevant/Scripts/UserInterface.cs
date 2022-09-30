@@ -45,23 +45,29 @@ public class UserInterface : MonoBehaviour
     }
     public void GetStrings()
     {
-        GameObject newMacro = Instantiate(macroUIPrefab, macroGrid.transform);
-        macroUI.Add(newMacro);
-
         nameInField = macroNameFieldText.text;
         goalInField = macroGoalFieldText.text;
+        if (macroUI.Count < 8)
+        {
+            GameObject newMacro = Instantiate(macroUIPrefab, macroGrid.transform);
+            macroUI.Add(newMacro);
 
-        macroNameFieldText.text = "Type Macro Name";
-        macroGoalFieldText.text = "Type Macro Goal";
+            macroNameFieldText.text = "Type Macro Name";
+            macroGoalFieldText.text = "Type Macro Goal";
 
-        string newMacroDisplay = "";
-        TextMeshProUGUI text = newMacro.GetComponentInChildren<TextMeshProUGUI>();
+            string newMacroDisplay = "";
+            TextMeshProUGUI text = newMacro.GetComponentInChildren<TextMeshProUGUI>();
 
-        newMacroDisplay += nameInField + ": ";
-        newMacroDisplay += "0/" + goalInField;
-        text.text = newMacroDisplay;
+            newMacroDisplay += nameInField + ": ";
+            newMacroDisplay += "0/" + goalInField;
+            text.text = newMacroDisplay;
 
-        newMacro.GetComponentInChildren<MacroHolder>().heldMacro = profileManager.CreateNewMacro(nameInField, int.Parse(goalInField));
+            newMacro.GetComponentInChildren<MacroHolder>().heldMacro = profileManager.CreateNewMacro(nameInField, int.Parse(goalInField));
+        }
+        else
+        {
+            profileManager.CreateNewMacro(nameInField, int.Parse(goalInField));
+        }
 
         macroCreationButton.SetActive(true);
         foreach (GameObject macro in macroUI)
@@ -116,5 +122,27 @@ public class UserInterface : MonoBehaviour
             string newText = currentMacro.heldMacro._macroName.ToString() + ": " + currentMacro.heldMacro._macroCurrent.ToString() + "/" + currentMacro.heldMacro._macroGoal;
             text.text = newText;
         }
+    }
+    public void StartSelectionWait()
+    {
+        StartCoroutine(WaitForSelection());
+    }
+    IEnumerator WaitForSelection()
+    {
+        if(macroUI.Count == 0)
+        {
+            StopCoroutine(WaitForSelection());
+        }
+        yield return new WaitUntil(Selection);
+        yield return new WaitForSeconds(.5f);
+        yield return new WaitUntil(Selection);
+        ChangeMacro();
+    }
+    bool Selection()
+    {
+        if (selectedMacro != null)
+            return true;
+        else
+            return false;
     }
 }

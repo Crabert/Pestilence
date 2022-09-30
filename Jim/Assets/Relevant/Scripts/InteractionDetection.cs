@@ -17,6 +17,8 @@ public class InteractionDetection : MonoBehaviour, IPointerEnterHandler, IPointe
         if (start && !stop)
             if (Input.GetMouseButton(0))
                 stop = true;
+        if (Input.GetMouseButton(0) && stop)
+            stop = false;
     }
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
