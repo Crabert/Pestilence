@@ -214,6 +214,8 @@ public class Player : MonoBehaviour
         else
         {
             sneak = false;
+            if(!sprint)
+                speed = 4;
         }
 
         if(Input.GetKey(KeyCode.LeftShift))
@@ -224,6 +226,8 @@ public class Player : MonoBehaviour
         else
         {
             sprint = false;
+            if(!sneak)
+                speed = 4;
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))

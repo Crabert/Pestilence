@@ -116,6 +116,8 @@ public class ContainerArray
         }   //manual insertion if auto isnt used
         else if(means == "manual" && slot1 != slot2)  //if the two indexes are the same nothing is required
         {
+            if (slot2.tag == "Equip Slot")
+                return false;
             //basic adding to slot
             if (container[index] == null)
             {
@@ -126,8 +128,6 @@ public class ContainerArray
             }
             else
             {
-                if (slot1.tag == "Equip Slot" || slot2.tag == "Equip Slot")
-                    return false;
                 //checking if the filled slot can be stacked into
                 if (container[index].canStack && originArray.container[index_o].canStack && container[index].itemName == item.itemName)
                 {

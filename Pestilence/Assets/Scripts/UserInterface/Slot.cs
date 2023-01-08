@@ -151,7 +151,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         if (slot != null && isAttatched && shift == false)
         {
             if (slot.GetComponent<Slot>().originArray.AddItem(heldItem, slot.GetComponent<Slot>().index,
-                slot.tag == "Equip Slot" && transform.parent.name == "Player Grid"  ? "equip" : "manual", index, this,
+                slot.tag == "Equip Slot" ? "equip" : "manual", index, this,
                 slot.GetComponent<Slot>(), heldAmount, originArray) && isAttatched) //cries in C#
             {
                 if (slot.GetComponent<Slot>().originArray.currentFunction == "Stacking Items")
